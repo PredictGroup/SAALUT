@@ -1,0 +1,464 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="SaalutExpress" Class="SaalutDataClasses1DataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="WebSettings" ConnectionString="Data Source=.;Initial Catalog=SaalutExpress;Persist Security Info=True;User ID=sa" SettingsObjectName="System.Configuration.ConfigurationManager.ConnectionStrings" SettingsPropertyName="SaalutExpressConnectionString" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.Prices" Member="Prices">
+    <Type Name="Price">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="GoodID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Price" Member="Price1" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="Version_UKM" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="TimeStamp" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="Active" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Association Name="Good_Price" Member="Good" ThisKey="GoodID" OtherKey="ID" Type="Good" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Barcodes" Member="Barcodes">
+    <Type Name="Barcode">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Barcode" Member="Barcode1" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="GoodID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Version_UKM" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="TimeStamp" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="Active" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Association Name="Good_Barcode" Member="Good" ThisKey="GoodID" OtherKey="ID" Type="Good" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Departments" Member="Departments">
+    <Type Name="Department">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="DepartNum_UKM" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="DepartName" Type="System.String" DbType="NVarChar(250)" CanBeNull="true" />
+      <Column Name="Version_UKM" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="TimeStamp" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="Active" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Association Name="Department_Good" Member="Goods" ThisKey="ID" OtherKey="DepartmentID" Type="Good" />
+    </Type>
+  </Table>
+  <Table Name="dbo.PriceChangeJours" Member="PriceChangeJours">
+    <Type Name="PriceChangeJour">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Change_log_id_UKM" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Order_no" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="ByDocument" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="FromSAP" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="FromTerminal" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="TimeStamp" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="InUse" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="Active" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Association Name="PriceChangeJour_TermoCennicQuoue" Member="TermoCennicQuoue" ThisKey="ID" OtherKey="JournalID" Type="TermoCennicQuoue" />
+      <Association Name="PriceChangeJour_PriceChangeLine" Member="PriceChangeLine" ThisKey="ID" OtherKey="JournalID" Type="PriceChangeLine" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Goods" Member="Goods">
+    <Type Name="Good">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Articul" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Name" Type="System.String" DbType="NVarChar(250)" CanBeNull="true" />
+      <Column Name="Descr" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="PLU" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Exp_Date" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="Exp_Qty" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Contents" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="Barcode" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Edinic" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
+      <Column Name="Producer" Type="System.String" DbType="NVarChar(250)" CanBeNull="true" />
+      <Column Name="GroupID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="DepartmentID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="PrintTemplateID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Version_UKM" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Version_Assort_UKM" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Version_Contenst_UKM" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Version_PrintTemplate_UKM" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Country" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="TimeStamp" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="Active" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Association Name="Good_Price" Member="Prices" ThisKey="ID" OtherKey="GoodID" Type="Price" />
+      <Association Name="Good_Barcode" Member="Barcodes" ThisKey="ID" OtherKey="GoodID" Type="Barcode" />
+      <Association Name="Good_PricesAkcionnie" Member="PricesAkcionnies" ThisKey="ID" OtherKey="GoodID" Type="PricesAkcionnie" />
+      <Association Name="Good_TermoCennicQuoue" Member="TermoCennicQuoue" ThisKey="ID" OtherKey="GoodID" Type="TermoCennicQuoue" />
+      <Association Name="Good_PriceChangeLine" Member="PriceChangeLine" ThisKey="ID" OtherKey="GoodID" Type="PriceChangeLine" />
+      <Association Name="Department_Good" Member="Department" ThisKey="DepartmentID" OtherKey="ID" Type="Department" IsForeignKey="true" />
+      <Association Name="Group_Good" Member="Group" ThisKey="GroupID" OtherKey="ID" Type="Group" IsForeignKey="true" />
+      <Association Name="PrintTemplates_Good" Member="PrintTemplates" ThisKey="PrintTemplateID" OtherKey="ID" Type="PrintTemplates" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Groups" Member="Groups">
+    <Type Name="Group">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="GroupNum" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
+      <Column Name="GroupName" Type="System.String" DbType="NVarChar(250)" CanBeNull="true" />
+      <Column Name="GroupRangeID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="PrintTemplateID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Version_UKM" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Version_Template_UKM" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="TimeStamp" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="Active" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Association Name="Group_Good" Member="Goods" ThisKey="ID" OtherKey="GroupID" Type="Good" />
+      <Association Name="Group_Group" Member="Groups" ThisKey="ID" OtherKey="GroupRangeID" Type="Group" />
+      <Association Name="Group_Group" Member="Group1" ThisKey="GroupRangeID" OtherKey="ID" Type="Group" IsForeignKey="true" />
+      <Association Name="PrintTemplates_Group" Member="PrintTemplates" ThisKey="PrintTemplateID" OtherKey="ID" Type="PrintTemplates" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.ThermoLabels" Member="ThermoLabels">
+    <Type Name="ThermoLabel">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Name" Type="System.String" DbType="NVarChar(250)" CanBeNull="true" />
+      <Column Name="FileLabelName" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="GoodNameVStroke" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="ContentsVStroke" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Active" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.TermoPrinters" Member="TermoPrinters">
+    <Type Name="TermoPrinter">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Name" Type="System.String" DbType="NVarChar(250)" CanBeNull="true" />
+      <Column Name="TermoPrinterPort" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="TermoPrinterNetPath" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="Active" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.WeightDeparts" Member="WeightDeparts">
+    <Type Name="WeightDepart">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Name" Type="System.String" DbType="NVarChar(250)" CanBeNull="true" />
+      <Column Name="Num" Type="System.String" DbType="NVarChar(3)" CanBeNull="true" />
+      <Column Name="DepartmentID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="TimeStamp" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="Active" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.PricesAkcionnie" Member="PricesAkcionnies">
+    <Type Name="PricesAkcionnie">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="GoodID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Price" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="Version_UKM" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="TimeStamp" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="Active" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Association Name="Good_PricesAkcionnie" Member="Good" ThisKey="GoodID" OtherKey="ID" Type="Good" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Logs" Member="Logs">
+    <Type Name="Log">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="TimeStamp" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="Type" Type="System.String" DbType="NVarChar(250)" CanBeNull="true" />
+      <Column Name="Message" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.SettingsSAPERP" Member="SettingsSAPERPTbls">
+    <Type Name="SettingsSAPERPTbl">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="MessageServerHost" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="LogonGroup" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="SystemID" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="SystemNumber" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="SAPRouter" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="SAPUser" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="SAPPassword" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Client" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Werk" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.UKMPriceTbl" Member="UKMPriceTbls">
+    <Type Name="UKMPriceTbl">
+      <Column Name="ID" Type="System.Int64" DbType="BigInt NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="LoadNum" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="Artikul" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="PriceUKM" Type="System.Double" DbType="Float NOT NULL" CanBeNull="false" />
+      <Column Name="Version" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="TimeStamp" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.SAPPriceTbl" Member="SAPPriceTbls">
+    <Type Name="SAPPriceTbl">
+      <Column Name="ID" Type="System.Int64" DbType="BigInt NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="LoadNum" Type="System.Int64" DbType="BigInt NOT NULL" CanBeNull="false" />
+      <Column Name="MATNR" Type="System.String" DbType="NVarChar(18) NOT NULL" CanBeNull="false" />
+      <Column Name="KBETR" Type="System.Double" DbType="Float NOT NULL" CanBeNull="false" />
+      <Column Name="KSCHL" Type="System.String" DbType="NVarChar(4) NOT NULL" CanBeNull="false" />
+      <Column Name="ASSORT" Type="System.String" DbType="NVarChar(1)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.SAPOUT_REST" Member="SAPOUT_REST">
+    <Type Name="SAPOUT_REST">
+      <Column Name="ID" Type="System.Int64" DbType="BigInt NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="LoadNum" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="MATNR" Type="System.String" DbType="NVarChar(18)" CanBeNull="true" />
+      <Column Name="MAKTX" Type="System.String" DbType="NVarChar(40)" CanBeNull="true" />
+      <Column Name="LGORT" Type="System.String" DbType="NVarChar(4)" CanBeNull="true" />
+      <Column Name="LABST" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="MEINS" Type="System.String" DbType="NVarChar(3)" CanBeNull="true" />
+      <Column Name="TimeStamp" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.SAPOUT_SMENA" Member="SAPOUT_SMENA">
+    <Type Name="SAPOUT_SMENA">
+      <Column Name="ID" Type="System.Int64" DbType="BigInt NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="LoadNum" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="SM_DATE" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="SMENA" Type="System.String" DbType="NVarChar(15)" CanBeNull="true" />
+      <Column Name="TimeStamp" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.UKMSoldGoods" Member="UKMSoldGoods">
+    <Type Name="UKMSoldGoods">
+      <Column Name="ID" Type="System.Int64" DbType="BigInt NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="LoadNum" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="Casher" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="POSN" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="CASH" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Smena" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="KassaSmena" Type="System.String" DbType="NVarChar(15)" CanBeNull="true" />
+      <Column Name="Artikul" Type="System.String" DbType="NVarChar(18)" CanBeNull="true" />
+      <Column Name="GoodName" Type="System.String" DbType="NVarChar(250)" CanBeNull="true" />
+      <Column Name="ClassifId" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="ClassifName" Type="System.String" DbType="NVarChar(250)" CanBeNull="true" />
+      <Column Name="Sold" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="Summ" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="TimeStamp" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Settings" Member="Settings">
+    <Type Name="Settings">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="A4ShirinaMM" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="A4VisotaMM" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="ResizeBarcodes" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="PrintTermoLabelPrice" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="PrintTermoLabelVisotaMM" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="PrintTermoLabelShirinaMM" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="PrintTermoLabelProizvodstvoVisotaMM" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="PrintTermoLabelProizvodstvoShirinaMM" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="TermoPrinterPort" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="TermoPrinterNetPath" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="MobileTermoPrinterPort" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="MobileTermoPrinterNetPath" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.TermoCennicQuoue" Member="TermoCennicQuoue">
+    <Type Name="TermoCennicQuoue">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="JournalID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="GoodID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="TermoCennicID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="TimeStamp" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="Active" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Association Name="Good_TermoCennicQuoue" Member="Good" ThisKey="GoodID" OtherKey="ID" Type="Good" IsForeignKey="true" />
+      <Association Name="PriceChangeJour_TermoCennicQuoue" Member="PriceChangeJour" ThisKey="JournalID" OtherKey="ID" Type="PriceChangeJour" IsForeignKey="true" />
+      <Association Name="TermoCennic_TermoCennicQuoue" Member="TermoCennic" ThisKey="TermoCennicID" OtherKey="ID" Type="TermoCennic" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.TermoCennic" Member="TermoCennic">
+    <Type Name="TermoCennic">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Name" Type="System.String" DbType="NVarChar(250)" CanBeNull="true" />
+      <Column Name="FileLabelName" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="GoodNameVStroke" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="ContentsVStroke" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Active" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Association Name="TermoCennic_TermoCennicQuoue" Member="TermoCennicQuoue" ThisKey="ID" OtherKey="TermoCennicID" Type="TermoCennicQuoue" />
+    </Type>
+  </Table>
+  <Table Name="dbo.StoreInfoExt" Member="StoreInfoExt">
+    <Type Name="StoreInfoExt">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="OsnPriceType_ID_UKM" Type="System.String" DbType="NVarChar(38)" CanBeNull="true" />
+      <Column Name="OsnPriceList_ID_UKM" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="OsnPriceListName_UKM" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.PrintTemplatesExt" Member="PrintTemplatesExt">
+    <Type Name="PrintTemplatesExt">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="PrintTemplateID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="SlovoCena" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="SlovoCenaFontWeight" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="SlovoCenaX" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="SlovoCenaY" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="DopText" Type="System.String" DbType="NVarChar(250)" CanBeNull="true" />
+      <Column Name="DopTextFontWeight" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="DopTextX" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="DopTextY" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="SlovoObichCena" Type="System.String" DbType="NVarChar(150)" CanBeNull="true" />
+      <Column Name="SlovoObichCenaFontWeight" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="SlovoObichCenaX" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="SlovoObichCenaY" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="MalenkiyBarcode" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Association Name="PrintTemplates_PrintTemplatesExt" Member="PrintTemplates" ThisKey="PrintTemplateID" OtherKey="ID" Type="PrintTemplates" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.WeightGoodsPlu" Member="WeightGoodsPlu">
+    <Type Name="WeightGoodsPlu">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="PLU" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="GroupNum" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="ButtonNum" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="ButtonName" Type="System.String" DbType="NVarChar(30)" CanBeNull="true" />
+      <Column Name="ButtonPic" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="Active" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.WeightGroups" Member="WeightGroups">
+    <Type Name="WeightGroups">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="GroupNum" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="ButtonNum" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="ButtonName" Type="System.String" DbType="NVarChar(30)" CanBeNull="true" />
+      <Column Name="ButtonPic" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="Active" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.PrintTemplates" Member="PrintTemplates">
+    <Type Name="PrintTemplates">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="UKM_ID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="TemplateName" Type="System.String" DbType="NVarChar(250)" CanBeNull="true" />
+      <Column Name="FileName" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="QtyWide" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="QtyHigh" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="SkipBetweenPagesMM" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="ShirinaCennicaMM" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="VisotaCennicaMM" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="GoodNameFontWeight" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="GoodNameX" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="GoodNameY" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="GoodNameSimvolovVStr" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="GoodNameOtstupMM" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="GoodNameCentrovano" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="PriceRubFontWeight" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="PriceRubX" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="PriceRubY" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="PriceRubFromRightToLeft" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="SlovoRubFontWeigh" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="SlovoRubUnderline" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="SlovoRubX" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="SlovoRubY" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="PriceKopFontWeight" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="PriceKopX" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="PriceKopY" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="SlovoKopFontWeight" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="SlovoKopUnderline" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="SlovoKopX" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="SlovoKopY" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="EdinicFontWeight" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="EdinicX" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="EdinicY" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="EdinicZa100Gr" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="SostavFontWeight" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="SostavX" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="SostavY" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="SostavSimvolovVStr" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="SostavOtstupMM" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="ProizvoditelFontWeight" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="ProizvoditeX" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="ProizvoditeY" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="BarcodeShirinaMM" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="BarcodeVisotaMM" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="BarcodeX" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="BarcodeY" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="MagazinFontWeight" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="MagazinX" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="MagazinY" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="JurlicoFontWeight" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="JurlicoX" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="JurlicoY" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="JurAddressFontWeight" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="JurAddressX" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="JurAddressY" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="FactAddressFontWeight" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="FactAddressX" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="FactAddressY" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="DataFontWeight" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="DataX" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="DataY" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="TimeStamp" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="Active" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="OldPriceRubFontWeight" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="OldPriceRubX" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="OldPriceRubY" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="OldSlovoRubFontWeigh" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="OldSlovoRubX" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="OldSlovoRubY" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="OldPriceKopFontWeight" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="OldPriceKopX" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="OldPriceKopY" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="OldSlovoKopFontWeight" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="OldSlovoKopX" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="OldSlovoKopY" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="OldPriceLineLength" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="OldPriceLineX" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="OldPriceLineY" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="PrintTemplates_Good" Member="Good" ThisKey="ID" OtherKey="PrintTemplateID" Type="Good" />
+      <Association Name="PrintTemplates_Group" Member="Group" ThisKey="ID" OtherKey="PrintTemplateID" Type="Group" />
+      <Association Name="PrintTemplates_PrintTemplatesExt" Member="PrintTemplatesExt" ThisKey="ID" OtherKey="PrintTemplateID" Type="PrintTemplatesExt" />
+    </Type>
+  </Table>
+  <Table Name="dbo.MobileTermoPrinters" Member="MobileTermoPrinters">
+    <Type Name="MobileTermoPrinters">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Num" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Port" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="NetPath" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.WeightNames" Member="WeightNames">
+    <Type Name="WeightNames">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="WeightNum" Type="System.String" DbType="NVarChar(3)" CanBeNull="true" />
+      <Column Name="Name" Type="System.String" DbType="NVarChar(350)" CanBeNull="true" />
+      <Column Name="SamoObsluzivanie" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="Active" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="WeightIP" Type="System.String" DbType="NVarChar(15)" CanBeNull="true" />
+      <Column Name="Name1Font" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Name1simvolv" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Name2Font" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Name2simvolv" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="contentFont" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="contentsimvol" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="keyboard" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="timesynh" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="contentFontLarge" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="contentsimvolLarge" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="contentallsimvolLarge" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.PriceChangeLines" Member="PriceChangeLine">
+    <Type Name="PriceChangeLine">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="JournalID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="GoodID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="ItemID_UKM" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="NewPrice" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="TimeStamp" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="Active" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="Akcionniy" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="counted" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="alcoDt" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Association Name="Good_PriceChangeLine" Member="Good" ThisKey="GoodID" OtherKey="ID" Type="Good" IsForeignKey="true" />
+      <Association Name="PriceChangeJour_PriceChangeLine" Member="PriceChangeJour" ThisKey="JournalID" OtherKey="ID" Type="PriceChangeJour" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.StoreInfo" Member="StoreInfos">
+    <Type Name="StoreInfos">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="StoreName" Type="System.String" DbType="NVarChar(250)" CanBeNull="true" />
+      <Column Name="Company" Type="System.String" DbType="NVarChar(250)" CanBeNull="true" />
+      <Column Name="AddressFact" Type="System.String" DbType="NVarChar(250)" CanBeNull="true" />
+      <Column Name="AddressJur" Type="System.String" DbType="NVarChar(250)" CanBeNull="true" />
+      <Column Name="StoreID_UKM" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="PriceType_ID_UKM" Type="System.String" DbType="NVarChar(38)" CanBeNull="true" />
+      <Column Name="PriceList_ID_UKM" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="PriceListName_UKM" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="CompanyProizvodstvo" Type="System.String" DbType="NVarChar(250)" CanBeNull="true" />
+      <Column Name="ProizvodstvoAddress" Type="System.String" DbType="NVarChar(250)" CanBeNull="true" />
+      <Column Name="TimeStamp" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="Active" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="ActPriceType_ID_UKM" Type="System.String" DbType="NVarChar(38)" CanBeNull="true" />
+      <Column Name="ActPriceList_ID_UKM" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="ActPriceListName_UKM" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="JurNameTermoPrn" Type="System.String" DbType="NVarChar(250)" CanBeNull="true" />
+      <Column Name="JurAddrTermoPrn" Type="System.String" DbType="NVarChar(250)" CanBeNull="true" />
+    </Type>
+  </Table>
+</Database>

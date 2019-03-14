@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2011/08/nuspec.xsd">
+  <metadata>
+    <id>SAPDotNetConnector3</id>
+    <version>0.3.0</version>
+    <title>SAP .Net Connector 3 dlls and references</title>
+    <authors>Cori Schlegel</authors>
+    <owners>Cori Schlegel</owners>
+    <projectUrl>http://kinrowan.net/blog/nuget-packages/sap-net-connector-v3/</projectUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>Adds the 3 required dlls for version 3 of the SAP .Net Connector to your project and adds references for the two files that can be referenced.
+
+See http://wiki.sdn.sap.com/wiki/display/ABAPConn/ABAP+Connectivity+Home for more information.</description>
+    <summary>Adds the 3 required dlls for version 3 of the SAP .Net Connector to your project and adds references for the two files that can be referenced.</summary>
+    <releaseNotes />
+    <copyright />
+    <language />
+    <references>
+      <reference file="sapnco.dll" />
+      <reference file="sapnco_utils.dll" />
+    </references>
+  </metadata>
+</package>

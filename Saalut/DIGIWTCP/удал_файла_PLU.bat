@@ -1,0 +1,3 @@
+echo off
+echo Удаление файла PLU...
+digiwtcp DEL 37 %1

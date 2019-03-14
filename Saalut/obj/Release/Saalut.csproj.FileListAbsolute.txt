@@ -1,0 +1,16 @@
+C:\Users\Andy\Documents\Saalut\Saalut\bin\Saalut.dll.config
+C:\Users\Andy\Documents\Saalut\Saalut\bin\Saalut.dll
+C:\Users\Andy\Documents\Saalut\Saalut\bin\Saalut.pdb
+C:\Users\Andy\Documents\Saalut\Saalut\bin\Microsoft.ScriptManager.jQuery.dll
+C:\Users\Andy\Documents\Saalut\Saalut\bin\Microsoft.ScriptManager.jQuery.UI.Combined.dll
+C:\Users\Andy\Documents\Saalut\Saalut\bin\MySql.Data.dll
+C:\Users\Andy\Documents\Saalut\Saalut\bin\MySql.Data.Entity.dll
+C:\Users\Andy\Documents\Saalut\Saalut\bin\MySql.Web.dll
+C:\Users\Andy\Documents\Saalut\Saalut\bin\sapnco.dll
+C:\Users\Andy\Documents\Saalut\Saalut\bin\sapnco_utils.dll
+C:\Users\Andy\Documents\Saalut\Saalut\bin\System.Web.Providers.dll
+C:\Users\Andy\Documents\Saalut\Saalut\obj\Release\Saalut.csprojAssemblyReference.cache
+C:\Users\Andy\Documents\Saalut\Saalut\obj\Release\Saalut.csproj.CoreCompileInputs.cache
+C:\Users\Andy\Documents\Saalut\Saalut\obj\Release\Saalut.csproj.CopyComplete
+C:\Users\Andy\Documents\Saalut\Saalut\obj\Release\Saalut.dll
+C:\Users\Andy\Documents\Saalut\Saalut\obj\Release\Saalut.pdb

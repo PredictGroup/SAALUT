@@ -1,0 +1,19 @@
+^XA
+^LL600
+^MFN,N
+^CI33
+^FO280,40^A0R,30,40^FD%goodname1%^FS
+^FO255,40^A0R,30,40^FD%goodname2%^FS
+^FO230,40^A0R,30,40^FD%goodname3% арт: %article%^FS
+^FO110,200^A0R,100,90^FD%pricerub%^FS
+^FO130,290^A0R,30,40^FDруб^FS
+^FO170,315^A0R,60,90^FD%pricekop%^FS
+^FO185,400^A0R,30,40^FDкоп^FS
+^FO70,250^BER,40,Y,N^FD%barcode%^FS
+^FO80,30^A0R,25,25^FDед.изм.:%edinica%^FS
+^FO60,30^A0R,20,20^FDДата:%docdate%^FS
+^FO35,30^A0R,25,25^FD%producer%^FS
+^FO10,30^A0R,25,25^FD%company% %address%^FS
+^FO0,0^GB320,480,1^FS
+^PQ0001
+^XZ

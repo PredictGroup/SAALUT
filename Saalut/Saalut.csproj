@@ -1,0 +1,604 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{55CEEBA0-8F5C-4AA6-9F59-5F62EFBC1196}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Saalut</RootNamespace>
+    <AssemblyName>Saalut</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <UseIISExpress>true</UseIISExpress>
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <TargetFrameworkProfile />
+    <Use64BitIISExpress />
+    <UseGlobalApplicationHostFile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="AjaxControlToolkit">
+      <HintPath>..\..\..\WebSites\CFNew\Bin\AjaxControlToolkit.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Microsoft.ScriptManager.jQuery">
+      <HintPath>..\packages\Microsoft.ScriptManager.jQuery.1.6.2\lib\Microsoft.ScriptManager.jQuery.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ScriptManager.jQuery.UI.Combined">
+      <HintPath>..\packages\Microsoft.ScriptManager.jQuery.UI.Combined.1.8.11\lib\Microsoft.ScriptManager.jQuery.UI.Combined.dll</HintPath>
+    </Reference>
+    <Reference Include="MySql.Data, Version=6.4.4.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\MySQL\MySql.Data.dll</HintPath>
+    </Reference>
+    <Reference Include="MySql.Data.Entity, Version=6.4.4.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\MySQL\MySql.Data.Entity.dll</HintPath>
+    </Reference>
+    <Reference Include="MySql.Web, Version=6.4.4.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\MySQL\MySql.Web.dll</HintPath>
+    </Reference>
+    <Reference Include="sapnco, Version=3.0.0.42, Culture=neutral, PublicKeyToken=50436dca5c7f7d23, processorArchitecture=x86">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>Libs\sapnco.dll</HintPath>
+    </Reference>
+    <Reference Include="sapnco_utils, Version=3.0.0.42, Culture=neutral, PublicKeyToken=50436dca5c7f7d23, processorArchitecture=x86">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>Libs\sapnco_utils.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Data.Linq" />
+    <Reference Include="System.Data.SqlServerCe, Version=4.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91" />
+    <Reference Include="System.Transactions" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Providers">
+      <HintPath>..\packages\System.Web.Providers.Core.1.0\lib\net40\System.Web.Providers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Windows.Forms.DataVisualization" />
+    <Reference Include="System.Windows.Forms.DataVisualization.Design" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.Xml.Linq" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Account\ChangePassword.aspx" />
+    <Content Include="Account\ChangePasswordSuccess.aspx" />
+    <Content Include="Account\Login.aspx" />
+    <Content Include="Account\Register.aspx" />
+    <Content Include="ByFind.aspx" />
+    <Content Include="CennicList.aspx" />
+    <Content Include="CennicListTermo.aspx" />
+    <Content Include="CigaretteRep.aspx" />
+    <Content Include="CigaretteRepAny.aspx" />
+    <Content Include="Content\Site.css" />
+    <Content Include="Content\themes\base\images\ui-bg_flat_0_aaaaaa_40x100.png" />
+    <Content Include="Content\themes\base\images\ui-bg_flat_75_ffffff_40x100.png" />
+    <Content Include="Content\themes\base\images\ui-bg_glass_55_fbf9ee_1x400.png" />
+    <Content Include="Content\themes\base\images\ui-bg_glass_65_ffffff_1x400.png" />
+    <Content Include="Content\themes\base\images\ui-bg_glass_75_dadada_1x400.png" />
+    <Content Include="Content\themes\base\images\ui-bg_glass_75_e6e6e6_1x400.png" />
+    <Content Include="Content\themes\base\images\ui-bg_glass_95_fef1ec_1x400.png" />
+    <Content Include="Content\themes\base\images\ui-bg_highlight-soft_75_cccccc_1x100.png" />
+    <Content Include="Content\themes\base\images\ui-icons_222222_256x240.png" />
+    <Content Include="Content\themes\base\images\ui-icons_2e83ff_256x240.png" />
+    <Content Include="Content\themes\base\images\ui-icons_454545_256x240.png" />
+    <Content Include="Content\themes\base\images\ui-icons_888888_256x240.png" />
+    <Content Include="Content\themes\base\images\ui-icons_cd0a0a_256x240.png" />
+    <Content Include="Content\themes\base\jquery.ui.accordion.css" />
+    <Content Include="Content\themes\base\jquery.ui.all.css" />
+    <Content Include="Content\themes\base\jquery.ui.autocomplete.css" />
+    <Content Include="Content\themes\base\jquery.ui.base.css" />
+    <Content Include="Content\themes\base\jquery.ui.button.css" />
+    <Content Include="Content\themes\base\jquery.ui.core.css" />
+    <Content Include="Content\themes\base\jquery.ui.datepicker.css" />
+    <Content Include="Content\themes\base\jquery.ui.dialog.css" />
+    <Content Include="Content\themes\base\jquery.ui.progressbar.css" />
+    <Content Include="Content\themes\base\jquery.ui.resizable.css" />
+    <Content Include="Content\themes\base\jquery.ui.selectable.css" />
+    <Content Include="Content\themes\base\jquery.ui.slider.css" />
+    <Content Include="Content\themes\base\jquery.ui.tabs.css" />
+    <Content Include="Content\themes\base\jquery.ui.theme.css" />
+    <Content Include="DljaRevizorovOpenRep.aspx" />
+    <Content Include="DljaRevizorovRep.aspx" />
+    <Content Include="ErrorPage.aspx" />
+    <Content Include="Images\accent.png" />
+    <Content Include="Images\aspNetHome.png" />
+    <Content Include="Images\bullet.png" />
+    <Content Include="Images\facebook.png" />
+    <Content Include="Images\findHosting.png" />
+    <Content Include="Images\heroAccent.png" />
+    <Content Include="Images\NuGetGallery.png" />
+    <Content Include="Images\orderedListOne.png" />
+    <Content Include="Images\orderedListThree.png" />
+    <Content Include="Images\orderedListTwo.png" />
+    <Content Include="Images\twitter.png" />
+    <Content Include="Images\windowsLive.png" />
+    <Content Include="NewJours.aspx" />
+    <Content Include="NewJoursLines.aspx" />
+    <Content Include="NewJoursNew1.aspx" />
+    <Content Include="NewJoursRoute.aspx" />
+    <Content Include="PriceJours.aspx" />
+    <Content Include="PriceJoursByDoc.aspx" />
+    <Content Include="PriceJoursTSD.aspx" />
+    <Content Include="Reports.aspx" />
+    <Content Include="Scripts\jquery-1.6.2-vsdoc.js" />
+    <Content Include="Scripts\jquery-1.6.2.js" />
+    <Content Include="Scripts\jquery-1.6.2.min.js" />
+    <Content Include="Scripts\jquery-ui-1.8.11.js" />
+    <Content Include="Scripts\jquery-ui-1.8.11.min.js" />
+    <Content Include="Scripts\modernizr-2.0.6-development-only.js" />
+    <Content Include="Scripts\_references.js" />
+    <Content Include="Default.aspx" />
+    <Content Include="favicon.ico" />
+    <Content Include="Global.asax" />
+    <Content Include="Services\PrintTermoCennicNow.asmx" />
+    <Content Include="Services\SaalutUtilService.asmx" />
+    <Content Include="Services\WeighingEquipLoader.asmx" />
+    <Content Include="Settings.aspx" />
+    <Content Include="SettinsSAPERP.aspx" />
+    <Content Include="SkladTSD\Default.aspx" />
+    <Content Include="SkladTSD\sklad.aspx" />
+    <Content Include="StornoRep.aspx" />
+    <Content Include="StornoRepByNum.aspx" />
+    <Content Include="TermoLabel.aspx" />
+    <Content Include="TermoLabelToLPT.aspx" />
+    <Content Include="TermoTickets.aspx" />
+    <Content Include="TestPage.aspx" />
+    <Content Include="TestPage2.aspx" />
+    <Content Include="TRMLabels\MobileTermoCennic.txt" />
+    <Content Include="TSD\Default.aspx" />
+    <Content Include="TSD\TSDJourLines.aspx" />
+    <Content Include="UKM_SAPERP_CheckPrices.aspx" />
+    <Content Include="UKM_SAPERP_OpenStocks.aspx" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="WeightRep.aspx" />
+    <Content Include="WLoads.aspx" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Account\ChangePassword.aspx.cs">
+      <DependentUpon>ChangePassword.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Account\ChangePassword.aspx.designer.cs">
+      <DependentUpon>ChangePassword.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Account\ChangePasswordSuccess.aspx.cs">
+      <DependentUpon>ChangePasswordSuccess.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Account\ChangePasswordSuccess.aspx.designer.cs">
+      <DependentUpon>ChangePasswordSuccess.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Account\Login.aspx.cs">
+      <DependentUpon>Login.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Account\Login.aspx.designer.cs">
+      <DependentUpon>Login.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Account\Register.aspx.cs">
+      <DependentUpon>Register.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Account\Register.aspx.designer.cs">
+      <DependentUpon>Register.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="BarcodeEAN13.cs" />
+    <Compile Include="ByFind.aspx.cs">
+      <DependentUpon>ByFind.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ByFind.aspx.designer.cs">
+      <DependentUpon>ByFind.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="CennicList.aspx.cs">
+      <DependentUpon>CennicList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CennicList.aspx.designer.cs">
+      <DependentUpon>CennicList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="CennicListTermo.aspx.cs">
+      <DependentUpon>CennicListTermo.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CennicListTermo.aspx.designer.cs">
+      <DependentUpon>CennicListTermo.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="CigaretteRep.aspx.cs">
+      <DependentUpon>CigaretteRep.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CigaretteRep.aspx.designer.cs">
+      <DependentUpon>CigaretteRep.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="CigaretteRepAny.aspx.cs">
+      <DependentUpon>CigaretteRepAny.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CigaretteRepAny.aspx.designer.cs">
+      <DependentUpon>CigaretteRepAny.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Default.aspx.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Default.aspx.designer.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="DljaRevizorovOpenRep.aspx.cs">
+      <DependentUpon>DljaRevizorovOpenRep.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="DljaRevizorovOpenRep.aspx.designer.cs">
+      <DependentUpon>DljaRevizorovOpenRep.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="DljaRevizorovRep.aspx.cs">
+      <DependentUpon>DljaRevizorovRep.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="DljaRevizorovRep.aspx.designer.cs">
+      <DependentUpon>DljaRevizorovRep.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ErrorPage.aspx.cs">
+      <DependentUpon>ErrorPage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ErrorPage.aspx.designer.cs">
+      <DependentUpon>ErrorPage.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="JourCart.cs" />
+    <Compile Include="NewJours.aspx.cs">
+      <DependentUpon>NewJours.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="NewJours.aspx.designer.cs">
+      <DependentUpon>NewJours.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="NewJoursLines.aspx.cs">
+      <DependentUpon>NewJoursLines.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="NewJoursLines.aspx.designer.cs">
+      <DependentUpon>NewJoursLines.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="NewJoursNew1.aspx.cs">
+      <DependentUpon>NewJoursNew1.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="NewJoursNew1.aspx.designer.cs">
+      <DependentUpon>NewJoursNew1.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="NewJoursRoute.aspx.cs">
+      <DependentUpon>NewJoursRoute.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="NewJoursRoute.aspx.designer.cs">
+      <DependentUpon>NewJoursRoute.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ObjectShredder.cs" />
+    <Compile Include="PriceJours.aspx.cs">
+      <DependentUpon>PriceJours.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="PriceJours.aspx.designer.cs">
+      <DependentUpon>PriceJours.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="PriceJoursByDoc.aspx.cs">
+      <DependentUpon>PriceJoursByDoc.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="PriceJoursByDoc.aspx.designer.cs">
+      <DependentUpon>PriceJoursByDoc.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="PriceJoursTSD.aspx.cs">
+      <DependentUpon>PriceJoursTSD.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="PriceJoursTSD.aspx.designer.cs">
+      <DependentUpon>PriceJoursTSD.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="PrintTemplateCart.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <DependentUpon>Settings.settings</DependentUpon>
+    </Compile>
+    <Compile Include="Reports.aspx.cs">
+      <DependentUpon>Reports.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Reports.aspx.designer.cs">
+      <DependentUpon>Reports.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="SaalutDataClasses1.cs">
+      <DependentUpon>SaalutDataClasses1.dbml</DependentUpon>
+    </Compile>
+    <Compile Include="SaalutDataClasses1.designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>SaalutDataClasses1.dbml</DependentUpon>
+    </Compile>
+    <Compile Include="SaveLogs.cs" />
+    <Compile Include="Services\Cennic.ashx.cs">
+      <DependentUpon>Cennic.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="Services\PrintTermoCennicNow.asmx.cs">
+      <DependentUpon>PrintTermoCennicNow.asmx</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Services\SaalutUtilService.asmx.cs">
+      <DependentUpon>SaalutUtilService.asmx</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Services\TermoLabelImage.ashx.cs">
+      <DependentUpon>TermoLabelImage.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="Services\TermoLabelProizvodstvo.ashx.cs">
+      <DependentUpon>TermoLabelProizvodstvo.ashx</DependentUpon>
+    </Compile>
+    <Compile Include="Services\WeighingEquipLoader.asmx.cs">
+      <DependentUpon>WeighingEquipLoader.asmx</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Settings.aspx.cs">
+      <DependentUpon>Settings.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Settings.aspx.designer.cs">
+      <DependentUpon>Settings.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="SettinsSAPERP.aspx.cs">
+      <DependentUpon>SettinsSAPERP.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="SettinsSAPERP.aspx.designer.cs">
+      <DependentUpon>SettinsSAPERP.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Site.Master.cs">
+      <DependentUpon>Site.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Site.Master.designer.cs">
+      <DependentUpon>Site.Master</DependentUpon>
+    </Compile>
+    <Compile Include="SkladTSD\Default.aspx.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="SkladTSD\Default.aspx.designer.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="SkladTSD\sklad.aspx.cs">
+      <DependentUpon>sklad.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="SkladTSD\sklad.aspx.designer.cs">
+      <DependentUpon>sklad.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="StornoRep.aspx.cs">
+      <DependentUpon>StornoRep.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="StornoRep.aspx.designer.cs">
+      <DependentUpon>StornoRep.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="StornoRepByNum.aspx.cs">
+      <DependentUpon>StornoRepByNum.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="StornoRepByNum.aspx.designer.cs">
+      <DependentUpon>StornoRepByNum.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="TermLabelUtils.cs" />
+    <Compile Include="TermoLabel.aspx.cs">
+      <DependentUpon>TermoLabel.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="TermoLabel.aspx.designer.cs">
+      <DependentUpon>TermoLabel.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="TermoLabelToLPT.aspx.cs">
+      <DependentUpon>TermoLabelToLPT.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="TermoLabelToLPT.aspx.designer.cs">
+      <DependentUpon>TermoLabelToLPT.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="TermoTickets.aspx.cs">
+      <DependentUpon>TermoTickets.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="TermoTickets.aspx.designer.cs">
+      <DependentUpon>TermoTickets.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="TestPage.aspx.cs">
+      <DependentUpon>TestPage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="TestPage.aspx.designer.cs">
+      <DependentUpon>TestPage.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="TestPage2.aspx.cs">
+      <DependentUpon>TestPage2.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="TestPage2.aspx.designer.cs">
+      <DependentUpon>TestPage2.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="TSD\Default.aspx.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="TSD\Default.aspx.designer.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="TSD\TSDJourLines.aspx.cs">
+      <DependentUpon>TSDJourLines.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="TSD\TSDJourLines.aspx.designer.cs">
+      <DependentUpon>TSDJourLines.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="UKMDataBaseConnects.cs" />
+    <Compile Include="UKM_SAPERP_CheckPrices.aspx.cs">
+      <DependentUpon>UKM_SAPERP_CheckPrices.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UKM_SAPERP_CheckPrices.aspx.designer.cs">
+      <DependentUpon>UKM_SAPERP_CheckPrices.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="UKM_SAPERP_OpenStocks.aspx.cs">
+      <DependentUpon>UKM_SAPERP_OpenStocks.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UKM_SAPERP_OpenStocks.aspx.designer.cs">
+      <DependentUpon>UKM_SAPERP_OpenStocks.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="WeighingEquipUtils.cs" />
+    <Compile Include="WeightRep.aspx.cs">
+      <DependentUpon>WeightRep.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="WeightRep.aspx.designer.cs">
+      <DependentUpon>WeightRep.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="WLoads.aspx.cs">
+      <DependentUpon>WLoads.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="WLoads.aspx.designer.cs">
+      <DependentUpon>WLoads.aspx</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="SaalutDataClasses1.dbml">
+      <Generator>MSLinqToSQLGenerator</Generator>
+      <LastGenOutput>SaalutDataClasses1.designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <Content Include="Services\Cennic.ashx" />
+    <Content Include="Services\TermoLabelImage.ashx" />
+    <Content Include="Services\TermoLabelProizvodstvo.ashx" />
+    <Content Include="TRMLabels\cennic3020.slb" />
+    <Content Include="TRMLabels\cennic3020_rb.slb" />
+    <Content Include="TRMLabels\cennic5830.slb" />
+    <Content Include="TRMLabels\TermCennicB1.slb" />
+    <Content Include="TRMLabels\TermCennict9060.blb" />
+    <Content Include="TRMLabels\TermLabel4204RB.slb" />
+    <Content Include="TRMLabels\TermLabel4204RB.slg" />
+    <Content Include="TRMLabels\TermLbl3020.tst" />
+    <Content Include="TRMLabels\TermLbl5830.tst" />
+    <Content Include="TRMLabels\TermLbl5860.tst" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Account\Web.config" />
+    <Content Include="Site.Master" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{3259AA49-8AA1-44D3-9025-A0B520596A8C}" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="SaalutDataClasses1.dbml.layout">
+      <DependentUpon>SaalutDataClasses1.dbml</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Data\" />
+    <Folder Include="Export\" />
+    <Folder Include="Libs\" />
+    <Folder Include="Templates\" />
+    <Folder Include="TRMExportCennic\" />
+    <Folder Include="TRMExport\" />
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>49549</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:50186/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

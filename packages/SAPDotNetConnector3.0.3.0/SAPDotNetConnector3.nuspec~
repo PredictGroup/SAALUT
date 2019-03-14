@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<package>
+	<metadata>
+		<id>SAPDotNetConnector3</id>
+		<title>SAP .Net Connector 3 dlls and references</title>
+		<version>0.2.0</version>
+		<authors>Cori Schlegel</authors>
+		<description>Adds the 3 required dll for version 3 of the SAP .Net Connector to your project and adds references for the two files that can be referenced.</description>
+		<projectUrl>http://kinrowan.net/blog/nuget-packages/sap-net-connector-v3/</projectUrl>
+	</metadata>
+</package>
